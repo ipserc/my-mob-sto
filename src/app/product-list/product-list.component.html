@@ -2,22 +2,26 @@
   <b> Products </b>
 </h2>
 
-<div *ngFor="let product of products">
-  <h3>
-    <a [title]="product.name + ' details'">
-      {{ product.name }}
+<div *ngFor="let product of products; index as productId">
+    <a [title]="product.name + ' details Price: ' + product.price +'€'" [routerLink]="['/products', productId]">
+      <h3>
+        {{ product.name }} 
+      </h3>
+      &nbsp;&nbsp;&nbsp; Price: {{ product.price }} €
     </a>
 
-    <p *ngIf="product.description">Description: {{ product.description }}</p>
+      <div *ngIf="product.description; else elseBlock">Description: {{ product.description }}</div>
+      <ng-template #elseBlock><div>Description no available.</div></ng-template>
 
-    <button (click)="share()">Share</button>
+    <p> 
+      <button (click)="share(product.price)">Share</button>
+    </p>
 
     <app-product-alerts 
       [product]="product" 
       (notify)="onNotify()">
     </app-product-alerts>
 
-  </h3>
 </div>
 
 

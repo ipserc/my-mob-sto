@@ -1,18 +1,18 @@
 export const products = [
   {
     name: 'Phone XL',
-    price: 799,
+    price: 799-3+Math.floor(Math.random()*11),
     description: 'A large phone with one of the best screens',
   },
   {
     name: 'Phone Mini',
-    price: 699,
+    price: 699-6+Math.floor(Math.random()*11),
     description: 'A great phone with one of the best cameras',
   },
   {
     name: 'Phone Standard',
-    price: 299,
-    description: 'No description available',
+    price: 299-9+Math.floor(Math.random()*11),
+    description: '',
   },
 ];
 

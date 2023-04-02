@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { products } from '../products';
 
 @Component({
@@ -6,12 +6,13 @@ import { products } from '../products';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
 })
+
 export class ProductListComponent {
   products = products;
   notify: any;
 
-  share() {
-    window.alert('The product has been shared!');
+  share(price: number) {
+    window.alert('The product has been shared at a price of ' + price + '€');
   }
 
   onNotify() {
